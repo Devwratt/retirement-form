@@ -498,7 +498,7 @@
         <!-- Form Section - Moved to Top -->
         <div class="form-section">
             <div class="form-header">
-                <h2>🖊️ Contact Details Form</h2>
+                <h2>🖊️ Retirement Details Form</h2>
                 <p>Please fill in all the required information accurately</p>
             </div>
 
@@ -694,8 +694,6 @@
             </div>
         </div>
 
-
-        
         <!-- Instructions Timeline -->
         <div class="instructions-section">
             <h2 style="text-align: center; color: #2d3748; margin-bottom: 40px; font-size: 32px; font-weight: 800;">
@@ -781,32 +779,62 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        
     <script>
         document.getElementById('retirementForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Show loading message
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '⏳ Submitting...';
+            submitBtn.disabled = true;
+            
             const formData = new FormData(this);
             const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfe8J-MJL0TPPrQDbNwSk1HTyHxX7A4Z4_9q-60KKmfaOxUGQ/formResponse';
             
+            // Create URL with all form data
             const params = new URLSearchParams();
             for (let [key, value] of formData.entries()) {
-                if (key.startsWith('entry.')) {
+                if (key.startsWith('entry.') || key === 'entry.662313097' || key === 'phone' || key === 'post') {
                     params.append(key, value);
                 }
             }
             
-            fetch(baseUrl + '?' + params.toString(), {
-                method: 'POST',
-                mode: 'no-cors'
-            }).then(() => {
+            // Use iframe method for better reliability
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            const form = document.createElement('form');
+            form.target = 'hidden_iframe';
+            form.method = 'POST';
+            form.action = baseUrl;
+            
+            // Add all form fields
+            for (let [key, value] of formData.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Success message after delay
+            setTimeout(() => {
                 alert('✅ Form submitted successfully!\n\nThank you for completing your retirement details form. Your information has been recorded.\n\nNext Steps:\n• You will receive a confirmation email within 24 hours\n• Our HR team will contact you for verification\n• Keep checking your email for further instructions\n\nFor any queries, contact HR Department.');
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
                 this.reset();
-            }).catch(() => {
-                alert('✅ Form submitted successfully!\n\nYour retirement details have been recorded. You will receive confirmation shortly.');
-                this.reset();
-            });
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+            }, 1000);
         });
 
         document.getElementById('photoUpload').addEventListener('change', function(e) {
