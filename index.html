@@ -502,6 +502,8 @@
                 <p>Please fill in all the required information accurately</p>
             </div>
 
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSfe8J-MJL0TPPrQDbNwSk1HTyHxX7A4Z4_9q-60KKmfaOxUGQ/formResponse">
+
             <form id="retirementForm" class="form-content">
                 <!-- Section 1: Personal Details -->
                 <div class="section">
@@ -600,17 +602,17 @@
 
                     <div class="form-group">
                         <label>Post Office</label>
-                        <input type="text" name="post" placeholder="Enter nearest post office name">
+                        <input type="text" name="entry.1270817767" placeholder="Enter nearest post office name">
                     </div>
 
                     <div class="form-group">
                         <label>PIN Code</label>
-                        <input type="text" name="entry.662313097" placeholder="Enter 6-digit PIN code" maxlength="6">
+                        <input type="text" name="entry.1883238253" placeholder="Enter 6-digit PIN code" maxlength="6">
                     </div>
 
                     <div class="form-group">
                         <label>Phone Number after Retirement <span class="required">*</span></label>
-                        <input type="tel" name="phone" required placeholder="Enter 10-digit mobile number" maxlength="10">
+                        <input type="tel" name="entry.662313097" required placeholder="Enter 10-digit mobile number" maxlength="10">
                         <p class="helper-text">This number will be used for all official communications</p>
                     </div>
 
@@ -631,6 +633,8 @@
                 </div>
 
                 <button type="submit" class="submit-btn">Submit Retirement Form</button>
+
+                </form>
             </form>
         </div>
 
@@ -792,7 +796,6 @@
             submitBtn.disabled = true;
             
             const formData = new FormData(this);
-            const baseUrl = 'https://docs.google.com/forms/d/e/1m_86mnQpTYPmIxkTqCJlwV04pDhL2B-uhLRFSH6AgCM/formResponse';
             
             // Create URL with all form data
             const params = new URLSearchParams();
@@ -811,7 +814,6 @@
             const form = document.createElement('form');
             form.target = 'hidden_iframe';
             form.method = 'POST';
-            form.action = baseUrl;
             
             // Add all form fields
             for (let [key, value] of formData.entries()) {
