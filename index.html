@@ -887,44 +887,47 @@
         </div>
     </div>
 
-    <script>
-        // Form submission handler
-        document.getElementById('retirementForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = '⏳ Submitting...';
-            submitBtn.disabled = true;
-            
-            const formData = new FormData(this);
-            const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfe8J-MJL0TPPrQDbNwSk1HTyHxX7A4Z4_9q-60KKmfaOxUGQ/formResponse';
-            
-            // Create hidden iframe
-            const iframe = document.createElement('iframe');
-            iframe.name = 'hidden_iframe';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            
-            // Create form element
-            const form = document.createElement('form');
-            form.target = 'hidden_iframe';
-            form.method = 'POST';
-            form.action = baseUrl;
-            
-            // Add all form fields as hidden inputs
-            for (let [key, value] of formData.entries()) {
-                if (key.startsWith('entry.')) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                }
-            }
-            
-            document.body.appendChild(form);
-            form.submit();
+
+        <script>
+                    // Form submission handler
+
+document.getElementById('retirementForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const submitBtn = this.querySelector('.submit-btn');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = '⏳ Submitting...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData(this);
+  const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfe8J-MJL0TPPrQDbNwSk1HTyHxX7A4Z4_9q-60KKmfaOxUGQ/formResponse';
+
+  // Build query string from form data
+  const params = new URLSearchParams();
+  for (let [key, value] of formData.entries()) {
+    if (key.startsWith('entry.')) params.append(key, value);
+  }
+
+  // Submit via an actual request (no iframe)
+  fetch(googleFormURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: params
+  })
+  .then(() => {
+    alert('✅ Form submitted successfully!\n\nYour information has been recorded in Google Form.');
+    this.reset();
+  })
+  .catch(() => {
+    alert('⚠️ Failed to submit form. Please try again later.');
+  })
+  .finally(() => {
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  });
+});
+
+         
             
             // Success message after delay
             setTimeout(() => {
