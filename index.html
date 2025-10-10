@@ -474,6 +474,330 @@
             opacity: 0.95;
         }
 
+        /* Header Styles */
+        .main-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .header-top {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .header-contact-item {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            gap: 8px;
+        }
+
+        .header-contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .header-contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .header-main {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            color: #2d3748;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        /* Welcome Banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: pulse 3s infinite;
+        }
+
+        .welcome-banner::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -80px;
+            left: -80px;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .banner-title {
+            font-size: 56px;
+            color: white;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .banner-subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .banner-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .banner-btn {
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .banner-btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .banner-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .banner-btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .banner-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                padding: 10px 20px;
+            }
+
+            .header-contact {
+                font-size: 12px;
+            }
+
+            .header-main {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+
+            .logo-text h1 {
+                font-size: 20px;
+            }
+
+            .logo-text p {
+                font-size: 12px;
+            }
+
+            .header-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .welcome-banner {
+                padding: 40px 20px;
+            }
+
+            .banner-icon {
+                font-size: 60px;
+            }
+
+            .banner-title {
+                font-size: 36px;
+            }
+
+            .banner-subtitle {
+                font-size: 18px;
+            }
+
+            .banner-description {
+                font-size: 14px;
+            }
+
+            .banner-buttons {
+                flex-direction: column;
+            }
+
+            .banner-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         /* Visitor Info Section */
         .visitor-info {
             background: rgba(255, 255, 255, 0.95);
@@ -574,8 +898,74 @@
 </head>
 <body>
     <div class="container">
+        <!-- Main Header -->
+        <header class="main-header">
+            <!-- Top Bar -->
+            <div class="header-top">
+                <div class="header-contact">
+                    <div class="header-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+911234567890">+91 123 456 7890</a>
+                    </div>
+                    <div class="header-contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:retirement@sail.com">retirement@sail.com</a>
+                    </div>
+                </div>
+                <div class="header-contact">
+                    <div class="header-contact-item">
+                        <span>🕐</span>
+                        <span>Mon - Fri: 9:00 AM - 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Header Content -->
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo">🏆</div>
+                    <div class="logo-text">
+                        <h1>SAIL Retirement Portal</h1>
+                        <p>Securing Your Golden Years</p>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+
+                <nav class="header-nav" id="mainNav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#form" class="nav-link">Apply Now</a>
+                    <a href="#benefits" class="nav-link">Benefits</a>
+                    <a href="#process" class="nav-link">Process</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner" id="home">
+            <div class="banner-content">
+                <div class="banner-icon">🌟</div>
+                <h1 class="banner-title">Welcome to Your Retirement Journey</h1>
+                <p class="banner-subtitle">Begin Your New Chapter with Confidence</p>
+                <p class="banner-description">
+                    We're here to support you through every step of your retirement process.
+                    Access comprehensive benefits, medical coverage, pension plans, and dedicated support
+                    to ensure a smooth transition into your well-deserved retirement.
+                </p>
+                <div class="banner-buttons">
+                    <a href="#form" class="banner-btn banner-btn-primary">
+                        📝 Fill Retirement Form
+                    </a>
+                    <a href="#benefits" class="banner-btn banner-btn-secondary">
+                        💡 Explore Benefits
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Form Section - At Top -->
-        <div class="form-section">
+        <div class="form-section" id="form">
             <div class="form-header">
                 <h2>🖊️ Contact Details Form</h2>
                 <p>Please fill in all the required information accurately</p>
@@ -714,11 +1104,11 @@
         </div>
 
         <!-- Hero Section -->
-        <div class="hero-section">
+        <div class="hero-section" id="benefits">
             <div class="hero-icon">🏆</div>
             <h1>Retirement Benefits Portal</h1>
             <p class="subtitle">Secure Your Future with Comprehensive Benefits & Support</p>
-            
+           
             <div class="stats-container">
                 <div class="stat-box">
                     <div class="stat-number">100%</div>
@@ -753,7 +1143,7 @@
             </div>
             <div class="benefit-card">
                 <span class="benefit-icon">🎁</span>
-                <h3>Gratuity Rules</h3>
+                <h3>Gratuity Payment</h3>
                 <p>Lump sum gratuity payment calculated based on your service period. Tax benefits as per government regulations.</p>
                 <p>For more information <a href="https://drive.google.com/file/d/1ARrAa26F8mPOj9eBRF_FXERSg64UmvXr/view?usp=sharing" target="_blank">Click Here</a></p>
             </div>
@@ -783,7 +1173,7 @@
         </div>
 
         <!-- Instructions Timeline -->
-        <div class="instructions-section">
+        <div class="instructions-section" id="process">
             <h2 style="text-align: center; color: #2d3748; margin-bottom: 40px; font-size: 32px; font-weight: 800;">
                 📋 Retirement Process Guide
             </h2>
@@ -868,7 +1258,7 @@
         </div>
 
         <!-- Visitor Information Section -->
-        <div class="visitor-info">
+        <div class="visitor-info" id="contact">
             <h2>📊 Website Analytics</h2>
             <div class="visitor-stats">
                 <div class="visitor-card">
@@ -887,32 +1277,31 @@
         </div>
     </div>
 
-
-        <script>
-                 // Form submission handler
+    <script>
+        // Form submission handler
         document.getElementById('retirementForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+           
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = '⏳ Submitting...';
             submitBtn.disabled = true;
-            
+           
             const formData = new FormData(this);
             const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfe8J-MJL0TPPrQDbNwSk1HTyHxX7A4Z4_9q-60KKmfaOxUGQ/formResponse';
-            
+           
             // Create hidden iframe
             const iframe = document.createElement('iframe');
             iframe.name = 'hidden_iframe';
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
-            
+           
             // Create form element
             const form = document.createElement('form');
             form.target = 'hidden_iframe';
             form.method = 'POST';
             form.action = baseUrl;
-            
+           
             // Add all form fields as hidden inputs
             for (let [key, value] of formData.entries()) {
                 if (key.startsWith('entry.')) {
@@ -923,18 +1312,18 @@
                     form.appendChild(input);
                 }
             }
-            
+           
             document.body.appendChild(form);
             form.submit();
-            
+           
             // Success message after delay
             setTimeout(() => {
-                alert('✅ Form submitted successfully!\n\nThank you for completing your retirement details form. Your information has been recorded.');
-                
+                alert('✅ Form submitted successfully!\n\nThank you for completing your retirement details form. Your information has been recorded.\n\nNext Steps:\n• You will receive a confirmation email within 24 hours\n• Our HR team will contact you for verification\n• Keep checking your email for further instructions\n\nFor any queries, contact HR Department.');
+               
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 this.reset();
-                
+               
                 // Clean up
                 if (document.body.contains(form)) document.body.removeChild(form);
                 if (document.body.contains(iframe)) document.body.removeChild(iframe);
@@ -969,21 +1358,21 @@
         // Visitor counter - using localStorage for demo
         function updateVisitorCount() {
             let visitors = localStorage.getItem('totalVisitors');
-            
+           
             if (!visitors) {
                 // Initialize with a starting number (you can change this)
                 visitors = 1000;
             } else {
                 visitors = parseInt(visitors);
             }
-            
+           
             // Check if this is a new visit (using session storage)
             if (!sessionStorage.getItem('visited')) {
                 visitors++;
                 localStorage.setItem('totalVisitors', visitors);
                 sessionStorage.setItem('visited', 'true');
             }
-            
+           
             // Animate the counter
             animateCounter('totalVisitors', visitors);
         }
@@ -995,7 +1384,7 @@
             const increment = Math.ceil(targetValue / 50);
             const duration = 1500; // 1.5 seconds
             const stepTime = duration / (targetValue / increment);
-            
+           
             const timer = setInterval(() => {
                 currentValue += increment;
                 if (currentValue >= targetValue) {
@@ -1013,15 +1402,61 @@
             updateVisitorCount();
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-link, .banner-btn').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                       
+                        // Close mobile menu if open
+                        const nav = document.getElementById('mainNav');
+                        nav.classList.remove('active');
+                       
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (this.classList.contains('nav-link')) {
+                            this.classList.add('active');
+                        }
+                    }
                 }
             });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['home', 'form', 'benefits', 'process', 'contact'];
+            let currentSection = '';
+           
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = sectionId;
+                    }
+                }
+            });
+           
+            if (currentSection) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
